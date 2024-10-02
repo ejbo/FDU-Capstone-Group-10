@@ -1,0 +1,19 @@
+<div class="room-container">
+
+{% block content %}
+    <div>
+    
+        <h1>{{room.name}}</h1>
+
+        <p>{{room.description}}</p>
+        
+    <div>
+        <h3>Members</h3>
+        {% for user in members %}
+        <div>
+            <p>@{{ user.username }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
