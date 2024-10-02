@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.db.models import Q
 from .models import Room, Topic
 from .forms import RoomForm
-# Create your views here.
+
+
 def home(request):
 
     q = request.GET.get('q') if request.GET.get('q') != None else ''
@@ -22,10 +23,14 @@ def home(request):
     }            
     return render(request, 'StudyRoom/home.html', context)
 
+
 def room(request, pk):
     room = Room.objects.get(id=pk)
+    members = room.members.all()
+
     context = {
         'room': room,
+        'members': members,
     }
 
     return render(request, 'StudyRoom/room.html', context)
