@@ -1,13 +1,58 @@
-<a href='/'>
-    <h1>Logo</h1>
-</a>
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'images/logo.jpg' %}" alt="Logo" width="80" height="60" class="d-inline-block align-text-top">
+        </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More Functions
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Placeholder</a></li>
+              <li><a class="dropdown-item" href="#">Placeholder</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Placeholder</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="container text-center">
+          <form class="d-flex" role="search" method="GET", action="{% url 'home' %}">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
 
+        <!-- The user has logged in -->
+         
+        <!-- <div>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{% static 'images/logo.jpg' %}" alt="Logo" width="80" height="60" class="d-inline-block align-text-top">
+          </a>
+        </div> -->
+        <div>
+            <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>
+        </div>
+        <div>
+          <a href="{% url 'logout' %}" class="btn btn-outline-success">Logout</a>
+      </div>
+      </div>
+    </div>
+</nav>
 
-<form method="GET", action="{% url 'home' %}">
+<!-- <form method="GET", action="{% url 'home' %}">
     <input type="text" name="q" placeholder="Search Rooms..." />
-</form>
-
-
-<a href="">Login</a>
+</form> -->
 
 <hr>

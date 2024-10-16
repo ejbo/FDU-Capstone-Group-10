@@ -3,10 +3,11 @@ from django.contrib.auth.models import User
 
 
 class Room(models.Model):
-    CATEGORY_CHOICES = {
-        'PR': "Private Room",
-        'PU': "Public Room",
-    }
+    CATEGORY_CHOICES = [
+        ('PR', "Private Room"),
+        ('PU', "Public Room"),
+    ]
+    
     host = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rooms')
     name = models.CharField(max_length=100)
     category = models.CharField(max_length=2, choices=CATEGORY_CHOICES)
@@ -29,4 +30,4 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.name
-    
+
